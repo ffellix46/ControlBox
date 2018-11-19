@@ -1,3 +1,11 @@
+/*
+ * ControlBoxServer handles the OPC UA Server through the open62541 library
+ *
+ * @author  Fernando Felix, Kevin Martin, Sathwik Rongala
+ * @version 1.2, 19/11/18
+ * @see      controlboxserver.cpp
+ */
+
 #include "controlboxserver.h"
 
 UA_Boolean running = true;
@@ -33,4 +41,11 @@ int ControlBoxServer::handleServer() {
 void ControlBoxServer::addDigitalOutputModule(){
     DigitalOutputModule *digitalOutputModule = new DigitalOutputModule();
     digitalOutputModule->addDigitalOutputVariable(server);
+}
+
+//Digital Input Module
+
+void ControlBoxServer::addDigitalInputModule(){
+    DigitalInputModule *digitalInputModule = new DigitalInputModule();
+    digitalInputModule->addDigitalInputVariable(server);
 }

@@ -14,7 +14,8 @@ TEMPLATE = app
 SOURCES += main.cpp \
     open62541.c \
     controlboxserver.cpp \
-    digitaloutputmodule.cpp
+    digitaloutputmodule.cpp \
+    digitalinputmodule.cpp
 
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which as been marked deprecated (the exact warnings
@@ -30,6 +31,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 HEADERS += \
     open62541.h \
     controlboxserver.h \
-    digitaloutputmodule.h
+    digitaloutputmodule.h \
+    digitalinputmodule.h
 
 LIBS  += -L/usr/local/lib -lwiringPi

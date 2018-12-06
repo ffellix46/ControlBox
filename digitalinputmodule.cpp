@@ -9,6 +9,12 @@ void DigitalInputModule::digitalInputSetUp(){
 
     fd_digital_output=pcf8574Setup(DIGITAL_INPUT_BASE,ADDRESS_DIGITAL_INPUT);
 
+    if(fd_digital_output<0){
+        UA_LOG_INFO(UA_Log_Stdout, UA_LOGCATEGORY_USERLAND,
+                    "Failed to open the DigitalInput i2c bus.");
+        return;
+    }
+
     for(int i=0;i<8;i++){
         pinMode(DIGITAL_INPUT_BASE+i,INPUT);
     }

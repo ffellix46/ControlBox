@@ -20,6 +20,12 @@ void DigitalOutputModule::digitalOutputSetUp(){
 
     fd_digital_output=pcf8574Setup(DIGITAL_OUTPUT_BASE,ADDRESS_DIGITAL_OUTPUT);
 
+    if(fd_digital_output<0){
+        UA_LOG_INFO(UA_Log_Stdout, UA_LOGCATEGORY_USERLAND,
+                    "Failed to open the DigitalOutput i2c bus.");
+        return;
+    }
+
     for(int i=0;i<8;i++){
         pinMode(DIGITAL_OUTPUT_BASE+i,OUTPUT);
         digitalWrite(DIGITAL_OUTPUT_BASE+i,1);
@@ -130,11 +136,15 @@ UA_DataSource DigitalOutputModule::digitalOutputData(int port){
 
 }
 
+
+
 UA_StatusCode DigitalOutputModule::readCurrentDigitalOutputZero(UA_Server *server,
                 const UA_NodeId *sessionId, void *sessionContext,
                 const UA_NodeId *nodeId, void *nodeContext,
                 UA_Boolean sourceTimeStamp, const UA_NumericRange *range,
                 UA_DataValue *dataValue) {
+
+    qDebug()<<&dataValue->value;
 
     UA_Boolean statusDO0;
     if(digitalRead(DIGITAL_OUTPUT_BASE+DO0))
@@ -172,6 +182,8 @@ UA_StatusCode DigitalOutputModule::readCurrentDigitalOutputOne(UA_Server *server
                 const UA_NodeId *nodeId, void *nodeContext,
                 UA_Boolean sourceTimeStamp, const UA_NumericRange *range,
                 UA_DataValue *dataValue) {
+
+    qDebug()<<&dataValue->value;
 
     UA_Boolean statusDO1;
     if(digitalRead(DIGITAL_OUTPUT_BASE+DO1))

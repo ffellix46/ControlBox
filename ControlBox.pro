@@ -15,7 +15,8 @@ SOURCES += main.cpp \
     open62541.c \
     controlboxserver.cpp \
     digitaloutputmodule.cpp \
-    digitalinputmodule.cpp
+    digitalinputmodule.cpp \
+    analoginputmodule.cpp
 
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which as been marked deprecated (the exact warnings
@@ -32,6 +33,7 @@ HEADERS += \
     open62541.h \
     controlboxserver.h \
     digitaloutputmodule.h \
-    digitalinputmodule.h
+    digitalinputmodule.h \
+    analoginputmodule.h
 
 LIBS  += -L/usr/local/lib -lwiringPi

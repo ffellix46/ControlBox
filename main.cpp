@@ -15,9 +15,11 @@ int main(int argc, char *argv[])
 
     ControlBoxServer *controlBoxServer = new ControlBoxServer();
 
-    controlBoxServer->addDigitalOutputModule();
+    controlBoxServer->addAnalogInputModule();
 
-    controlBoxServer->addDigitalInputModule();
+    //controlBoxServer->addDigitalOutputModule();
+
+    //controlBoxServer->addDigitalInputModule();
 
     controlBoxServer->handleServer();
 

@@ -6,6 +6,8 @@
 #include "/usr/include/wiringPiI2C.h"
 #include "/usr/include/pcf8574.h"
 #include "/usr/include/time.h"
+#include <QDebug>
+
 
 #define ADDRESS_DIGITAL_OUTPUT 0x25
 #define DIGITAL_OUTPUT_BASE 100

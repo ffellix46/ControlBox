@@ -49,3 +49,12 @@ void ControlBoxServer::addDigitalInputModule(){
     DigitalInputModule *digitalInputModule = new DigitalInputModule();
     digitalInputModule->addDigitalInputVariable(server);
 }
+
+//Analog Input Module
+
+void ControlBoxServer::addAnalogInputModule(){
+    AnalogInputModule *analogInputModule = new AnalogInputModule();
+    analogInputModule->addAnalogInputVariable(server);
+    //digitalOutputModule->addDigitalOutputVariable(server);
+}
+
